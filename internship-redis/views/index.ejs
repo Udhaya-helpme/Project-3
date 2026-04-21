@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Internship Tracker</title></head>
+<body>
+  <h1>Recent Applications</h1>
+  <% if (recentIds.length === 0) { %>
+    <p>No recent activity. Visit an application first.</p>
+  <% } else { %>
+    <ul>
+      <% recentIds.forEach(id => { %>
+        <li><a href="/application/<%= id %>"><%= id %></a></li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <hr>
+  <p>View: <a href="/application/app123">app123 (Google)</a> | <a href="/application/app456">app456 (Meta)</a></p>
+</body>
+</html>

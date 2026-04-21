@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title><%= app.company %></title></head>
+<body>
+  <h1><%= app.company %></h1>
+  <p>Status: <%= app.status %></p>
+  <p>Source: <%= fromCache ? 'Redis cache' : 'MongoDB (now cached)' %></p>
+
+  <form action="/application/<%= app.id %>/update" method="POST">
+    <select name="status">
+      <option>Applied</option>
+      <option>OA</option>
+      <option>Interviewing</option>
+      <option>Offer</option>
+      <option>Rejected</option>
+    </select>
+    <button type="submit">Update status</button>
+  </form>
+
+  <form action="/application/<%= app.id %>/delete" method="POST">
+    <button type="submit">Remove from cache</button>
+  </form>
+
+  <a href="/">Back</a>
+</body>
+</html>
